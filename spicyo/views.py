@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+from .models import Dish
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    
+    dishes=Dish.objects.all()
+
+    return render(request,'index.html',{'dishes':dishes})
