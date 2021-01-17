@@ -84,10 +84,15 @@
                     <div class="full">
                         <div class="right_header_info">
                             <ul>
-                                <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#"><a href="#">987-654-3210</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#"><a href="#">demo@gmail.com</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#"><a href="#">104 New york , USA</a></li>
-                                <li class="button_user"><a class="button active" href="#">Login</a><a class="button" href="#">Register</a></li>
+                                <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#"><a href="#">942-660-0177</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#"><a href="#">rhyagr@gmail.com</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#"><a href="#">Godi Road, Dahod</a></li>
+                                {% if user.is_authenticated %}
+                                <li class="dinone">Hello, {{user.first_name}}</li>
+                                <li class="button_user"><a class="button active" href="accounts/logout">Logout</a></li>
+                                {% else %}
+                                <li class="button_user"><a class="button active" href="accounts/login">Login</a><a class="button" href="accounts/register">Register</a></li>
+                                {% endif %}
                                 <li><img style="margin-right: 15px;" src="{% static 'images/search_icon.png' %}" alt="#"></li>
                                 <li>
                                     <button type="button" id="sidebarCollapse">
@@ -189,7 +194,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Homemade</h3>
-                        <h4><span class="theme_color">$</span>10</h4>
+                        <h4><span class="theme_color">&#8377;</span>10</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -198,7 +203,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Noodles</h3>
-                        <h4><span class="theme_color">$</span>20</h4>
+                        <h4><span class="theme_color">&#8377;</span>20</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -207,7 +212,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Egg</h3>
-                        <h4><span class="theme_color">$</span>30</h4>
+                        <h4><span class="theme_color">&#8377;</span>30</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -216,7 +221,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Sushi Dizzy</h3>
-                        <h4><span class="theme_color">$</span>40</h4>
+                        <h4><span class="theme_color">&#8377;</span>40</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -225,7 +230,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>The Coffee Break</h3>
-                        <h4><span class="theme_color">$</span>50</h4>
+                        <h4><span class="theme_color">&#8377;</span>50</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -234,7 +239,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Homemade</h3>
-                        <h4><span class="theme_color">$</span>10</h4>
+                        <h4><span class="theme_color">&#8377;</span>10</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -243,7 +248,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Noodles</h3>
-                        <h4><span class="theme_color">$</span>20</h4>
+                        <h4><span class="theme_color">&#8377;</span>20</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -252,7 +257,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Egg</h3>
-                        <h4><span class="theme_color">$</span>30</h4>
+                        <h4><span class="theme_color">&#8377;</span>30</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -261,7 +266,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>Sushi Dizzy</h3>
-                        <h4><span class="theme_color">$</span>40</h4>
+                        <h4><span class="theme_color">&#8377;</span>40</h4>
                     </div>
                 </div>
                 <div class="item">
@@ -270,7 +275,7 @@
                     </div>
                     <div class="product_blog_cont">
                         <h3>The Coffee Break</h3>
-                        <h4><span class="theme_color">$</span>50</h4>
+                        <h4><span class="theme_color">&#8377;</span>50</h4>
                     </div>
                 </div>
 
@@ -334,7 +339,7 @@
         <div class="blog_box">
           <div class="blog_img_box">
             <figure><img src="{{dish.img.url}}" alt="#"/>
-             <span>&#8377; {{dish.price}}</span>
+                <span class="theme_color">&#8377;{{dish.price}}</span>
             </figure>
           </div>
           <h3>{{dish.name}}</h3>
@@ -440,7 +445,7 @@
             </div>
             <div class="copyright">
                 <div class="container">
-                    <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                    <p>© 2021 All Rights Reserved.</p>
                 </div>
             </div>
         </div>
