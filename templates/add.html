@@ -1,0 +1,19 @@
+<!-- each page has its own logic like payment page, home page, menu page -->
+<!-- but basic design har page ka same rehta hai. So that's base.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+<h1>Hey Customer !!</h1> 
+<h3>How are you {{name}}?</h3>
+
+<form action="addResult" method="POST">
+    {% csrf_token %}
+    Enter 1st Num: <input type="text" name="num1"><br>
+    Enter 2nd Num: <input type="text" name="num2"><br>
+    <input type="submit">
+</form>
+
+{% endblock %}
