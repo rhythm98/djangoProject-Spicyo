@@ -111,10 +111,9 @@
                   </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                       
-                        <form class="main_form" action="login" method="POST" id="registration_form">
+                        <form class="main_form" action="login" method="POST" id="login_form">
                             {% csrf_token %}
-                            <div class="row">
-                             
+                            <div class="row">                            
                                
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <input class="form-control" placeholder="Username" type="text" name="username">
@@ -128,7 +127,7 @@
                                     <input type="button" class="send" label="Submit">
                                 </div> -->
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <button form="registration_form" formaction="register" formmethod="POST" type="submit" class="send">Send</button>
+                                    <button form="login_form" formaction="login" formmethod="POST" type="submit" class="send">Send</button>
                                 </div>
                             </div>
                         </form>

@@ -22,7 +22,9 @@ def login(request):
 # we aare using same register() to fetch register.html and during submission of registration form.
 # this is possible only via GET (-> used in fetching register.html) and POST (-> used in form method) methods
 def register (request):
+    
     if request.method=='POST':  
+        print(request.POST)
         first_name=request.POST['first_name']
         last_name=request.POST['last_name']
         username=request.POST['username']
