@@ -1,0 +1,163 @@
+Delhi Chaat
+login
+product
+shipment
+payment
+
+conda create -n envName  python=3.8
+conda activate envName   OR workon test
+pip install django
+pip install djangorestframework
+pip freeze > requirements.txt
+django-admin startproject backend  <---- 1 project ke andar kaafi saari apps
+cd backend
+python manage.py help
+python manage.py createsuperuser <-- django ka 127.0.0.1:8000/admin  <--iska username: rhythm id: rhyagr@gmail.com password: 9478956 create karne ke liye
+python manage.py runserver
+python manage.py startapp login
+python manage.py startapp product
+python manage.py startapp payment
+python manage.py startapp shipment
+python manage.py collectstatic
+python manage.py makemigrations
+python manage.py sqlmigrate spicyo 0001
+python manage.py migrate
+conda deactivate
+
+DBMS: PostgreSQL/ SQLite
+customer accounts product order tables
+
+
+sudo apt install libpq-dev  <---needed for psycopg2 
+pip install psycopg2 Pillow  
+
+psycopg2 <-- wrapper for connecton b/t python and postgresql
+pillow <-- for img uploading and use it in django application
+
+Postgresql  <---default (root) user "postgres", password: "test123"
+port no : 5432
+master password for pgAdmin: 94779456
+pgAdmin http://127.0.0.1:35343/browser/
+
+ls /etc/postgresql/13/main/    <--- "postgresql.conf" main configuration file
+service postgresql {start|stop|restart|reload|force-reload|status}
+$ sudo su postgres <-- to change user
+$ psql  <-- to start shell
+$ man psql  <-- to see man pages of postgresql
+# \l   <--list of available databases
+# \du   <--list of available users in postgresql
+# ALTER USER postgres WITH PASSWORD 'test123';  <--to change user password, if you see ALTER ROLE as output it means ur job done
+
+# CREATE USER user_1 WITH PASSWORD 'testpass1';  <--to create new user
+# ALTER USER user_1 with SUPERUSER;  <--assign privileges
+# \du
+# DROP USER user_2;    
+
+
+
+djangoREST framework
+
+django-admin startproject kitchen_apis .  # Note the trailing '.' character
+cd kitchen_apis
+django-admin startapp quickstart
+cd ..
+python manage.py migrate
+python manage.py createsuperuser --email rhyagr@gmail.com --username admin
+username: admin, password: 947823
+python manage.py startapp api_basics
+
+
+Delhi Chaat - Timmings: 4-10pm (working hours of restaurant)
+Focus on Niche -> Dr Abhinav Saxena
+Single Kitchen Multi Brand/Categry cusine Model
+Hub and Spoke cloud kitchen model
+Food Truck based cloud kitchen model
+Wraps
+Raj Kachori
+Aloo Tikki
+DahiBhalla
+Katori Chaat
+Pani Puri
+bowls like: Rajma Chawal, Chhole Chawal Noodles Paasta
+
+Pehle jismai maharat haasil hai wha se chalu karo later we will expand, staff bhi badha sakte hai
+
+To avoid mishap we can make it compulsory for PrePayment
+Take customer review ki khane mai kya accha nahi laga then yaa toh uss particular customer ke liye we can customise the dish ya do it for all customers like kisi ko khatti chatni zyada chahiye. Or you can take a note during the order ki bhai pehle se hi bata do kuch special recquirements in your order if we can fullfill so hum kar denge warna extra charges lekar kar denge
+
+Frequently Affordable Prices with satisfying Quantity
+If not delivered within 30min order will be free
+Home MADE
+Temprature Maintain till delivery
+minimum order : xRs
+Good Cutlery <--Presentation Matters
+Tracking
+No Contact Delivery
+App
+Online Payment
+
+
+
+App
+getting data from API, display each dish in card, search functionality, sorting on basis of rating, ETA, name (filters according to tag HEALTHY can be our USP) favourites (heart banado ) so that user ki pasand wali cheezein aa jaye
+each dish will be displayed as card
+database
+JSON :   getReq
+    ETA Food arrival
+    Ratings
+    item name, id
+    tags of  a dish : chat healthy veg cuisine type
+    dish images ->Link to cdn
+ Payment -> All mediums like card, UPI, COD
+ Login signup
+ food items
+ Easy to have ui
+ Dark/light
+Take care of item which is not available today
+
+ Steps -> Backend to Frontend
+ write some getFunctions like getDishes->fetches data from API
+ create a single card from 1 JSON  -> getCard function
+ generateVIwe()->method uses getCard() which takes complete json arrray, iterates through it and maps it to cards
+ implementing SearchBox ->eventListeners onKeypress()/searchDish query->outputList should call generateView() to display
+
+Implement sort dropDownButton: Rating/ETA will return a list =>call generateView=> Render view
+develop favourutes button->Local Storage/UserPreferences markFav() eventBubbling or eventCapturing and store list of fav item in local storage getters/setters
+Debouncing
+Pagination for scalability
+Scalable Readable modular
+MVVM (Android) MVT(django) MVC(Node)
+
+Order Management System ->Show menu, take order, show status for tracking and get it delivered
+
+Notifications
+order lifecycle : created, recieved, inProgress, cancelled, ordered
+delivery lifeCycle: person recieved the parcel, left the kitchen, on the way, parcel delivered, live Location of delivery guy will be shared
+Scalablity: 1000 orders per day
+
+
+How will we manage to deliver at 5 different locations same time
+Resiliency latency and fault tolerant -> Sharding 1 city(4 zone )
+
+Event Based Asynchronous System
+Entities: 
+User -> Name/email/mobile No/OAuth2.0/Multiple Address/Food
+User address by map and order ke time manually bhi lelo 
+Choices
+Menu -> name description
+
+Cart: list converted into orer when its checked out
+Order-> order_id user_id  payments
+orderItem-> dish_id quantity order_id
+
+Fulfillment/Delivery System
+Delivery Guy->name , mobile no, rating, id, attendace, working hours(shift)
+
+Point of sale software taki koi kitchen mai aakar bhi khana  order kar paye 
+Cost->25k
+
+Licenses like fssai 7500rs 
+TIN No, GST Registration, Fire License, Municipal Health License
+Payment card accepting machines
+
+Feedbacks reviews ratings of order as well as delivery 
